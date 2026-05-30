@@ -9,7 +9,7 @@ RUN npm ci --no-audit
 # Install frontend dependencies and build the frontend app
 COPY frontend/package.json frontend/
 COPY frontend/package-lock.json frontend/
-RUN cd frontend && npm ci --no-audit
+RUN cd frontend && npm ci --include=optional --no-audit
 COPY frontend ./frontend
 RUN cd frontend && npm run build
 
