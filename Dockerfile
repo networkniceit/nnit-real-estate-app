@@ -8,7 +8,7 @@ RUN npm install --production=false
 
 # Install frontend dependencies and build the frontend app
 COPY frontend/package.json frontend/
-COPY frontend/package-lock.json frontend/ 2>/dev/null || true
+COPY frontend/package-lock.json frontend/
 RUN cd frontend && npm install
 COPY frontend ./frontend
 RUN cd frontend && npm run build
