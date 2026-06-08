@@ -10,11 +10,11 @@ RUN npm ci --no-audit
 # Copy only package files first so installs are cached when unchanged.
 COPY frontend/package.json frontend/
 COPY frontend/package-lock.json frontend/
-# Try `npm ci` (deterministic). If it fails due to optional binding issues,
-# fall back to `npm install` which can fetch platform-specific optional deps.
+# Use `npm install` to ensure platform-specific optional native bindings
+# (e.g. @rolldown/binding-linux-x64-gnu) are fetched on Linux builders.
 RUN cd frontend \
-	&& rm -rf node_modules || true \
-	&& (npm ci --include=optional --no-audit || npm install --include=optional --no-audit)
+	&& rm -rf node_modules package-lock.json || true \
+	&& npm install --include=optional --no-audit
 COPY frontend ./frontend
 RUN cd frontend && npm run build
 
