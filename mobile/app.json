@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "NNIT Real Estate",
+    "slug": "nnit-real-estate-mobile",
+    "version": "1.0.0",
+    "sdkVersion": "48.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "orientation": "portrait",
+    "jsEngine": "hermes",
+    "entryPoint": "node_modules/expo/AppEntry.js",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "package": "com.nnit.realestatemobile"
+    },
+    "ios": {
+      "bundleIdentifier": "com.nnit.realestatemobile",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "plugins": [
+      "expo-dev-client"
+    ],
+    "cli": {
+      "appVersionSource": "npm"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "afc6bd4a-0b7e-4e2f-a3bd-222179ae1255"
+      }
+    }
+  }
+}
